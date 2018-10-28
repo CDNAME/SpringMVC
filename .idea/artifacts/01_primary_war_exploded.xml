@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="01-primary:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/01_primary_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="01-primary/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="01-primary" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="org.springframework:spring-web:5.0.7.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE" />
+          <element id="library" level="application" name="lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

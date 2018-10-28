@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注册视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+    <!--注册处理器-->
+    <bean id="/my.do" class="com.cd.handlers.MyController"/>
+    <!--<bean id="/my.do" class="com.cd.handlers.MyController2"/>-->
+    <!--
+    可以限定请求的提交方式，默认是POST,GET都支持的，如果使用，最好只限定POST，不然没有太大意义
+    <bean id="/my.do" class="com.cd.handlers.MyController3">
+        <property name="supportedMethods" value="POST"/>
+        <property name="supportedMethods" value="POST,GET"/>
+    </bean>
+    -->
+    
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注册处理器-->
+    <!-- 这里要求浏览器必须提交如下绝对路径才能访问到MyController这个资源：
+         这个路径出现在xml文件中，所以是后台路径。而后台路径的参照路径是：web应用的根路径。
+         当前web应用的根路径是：http://127.0.0.1:8080/springmvc
+         那也就是说，现在要求的绝对路径是：参照路径 + 相对路径
+         http://127.0.0.1:8080/springmvc/hello.do
+    -->
+    <bean id="/hello.do" class="com.cd.handlers.MyController"></bean>
+    
+    <!-- 这里要求浏览器必须提交如下绝对路径才能访问到MyController这个资源：
+         这个路径出现在xml文件中，所以是后台路径。而后台路径的参照路径是：web应用的根路径。
+         当前web应用的根路径是：http://127.0.0.1:8080/springmvc，即web(IDEA), WebRoot(MyEclipse)目录
+         那也就是说，现在要求的绝对路径是：参照路径 + 相对路径
+         http://127.0.0.1:8080/springmvc/test/hello.do
+    -->
+    <bean id="/test/hello.do" class="com.cd.handlers.MyController2"></bean>
+    
+</beans>

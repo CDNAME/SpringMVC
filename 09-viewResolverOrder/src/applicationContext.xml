@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!--
+        如果不设置order属性，则谁在前面先加载谁
+    -->
+    
+    <!--注册ResourceBundleViewResolver视图解析器-->
+    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="basename" value="myViews"/>
+        <property name="order" value="3"/>
+    </bean>
+
+    <!--注册XmlViewResolver视图解析器-->
+    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location" value="classpath:myViews.xml"/>
+        <property name="order" value="1"/>
+    </bean>
+    
+    <!--注册内部视图解析器，优先级最低-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    
+    <!--注册处理器-->
+    <bean id="/my.do" class="com.cd.handlers.MyController"/>
+    
+</beans>

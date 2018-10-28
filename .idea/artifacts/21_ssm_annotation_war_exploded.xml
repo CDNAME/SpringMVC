@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="21-ssm-annotation:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/21_ssm_annotation_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="21-ssm-annotation" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mybatis-spring-1.3.2" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.1.2" />
+          <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE" />
+          <element id="library" level="application" name="mysql-connector-java-5.1.34_1" />
+          <element id="library" level="application" name="mybatis-3.4.6" />
+          <element id="library" level="application" name="lib" />
+          <element id="library" level="application" name="com.mchange:c3p0:0.9.5.2" />
+          <element id="library" level="application" name="aspectjrt" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/commons-pool-1.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/jackson-annotations-2.9.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/jackson-core-2.9.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/jackson-databind-2.9.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/org.apache.felix.ipojo.annotations-1.12.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/hibernate-validator/classmate-1.3.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/hibernate-validator/hibernate-validator-6.0.11.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/hibernate-validator/jboss-logging-3.3.2.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/hibernate-validator/validation-api-2.0.1.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/aspectjweaver.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/aspectj-1.9.1.jar" />
+          <element id="library" level="application" name="org.springframework:spring-web:5.0.7.RELEASE" />
+          <element id="library" level="project" name="org.realityforge.javax.annotation:javax.annotation:1.0.0" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../Jars/jsr250-api-1.0.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="21-ssm-annotation/web/Web" />
+    </root>
+  </artifact>
+</component>

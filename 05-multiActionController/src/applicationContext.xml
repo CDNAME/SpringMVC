@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <map>
+                <!-- MultiActionController类具有一个属性methodNameResolver，方法名解析器
+                     其具有默认值InternalPathMethodNameResolver，该解析器将方法名作为资源名称进行解析
+                     那就意味着，我们提交请求时，要将方法名作为资源名称出现
+                     http://localhost:8080/springmvc/my/doSecond.do
+                -->
+                <!--<entry key="/my/*.do" value-ref="myController"/>-->
+
+                <!--ParameterMethodNameResolver方法名称解析器
+                    http://localhost:8080/springmvc/my.do?action=doSecond
+                -->
+                <entry key="/my.do" value-ref="myController"/>
+
+                <!--PropertiesMethodNameResolver方法名称解析器
+                    http://localhost:8080/springmvc/my_first.do
+                -->
+                <!--<entry key="/my_*.do" value-ref="myController"/>-->
+                <!--虽然也可以这样写，但达不到限制的目的-->
+                <!--<entry key="/*.do" value-ref="myController"/>-->
+            </map>
+        </property>
+    </bean>
+    
+    <!--注册处理器，调用默认的方法名解析器-->
+    <!--<bean id="myController" class="com.cd.handlers.MyController"/>-->
+
+    <!-- 注册propertiesMethodNameResolver方法名称解析器 需要<entry key="/my_*.do" value-ref="myController"/>-->
+    <!--
+    <bean id="propertiesMethodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+        <property name="mappings">
+            <props>
+                <prop key="/my_first.do">doFirst</prop>
+                <prop key="/my_second.do">doSecond</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+    <!--注册处理器，带PropertiesMethodNameResolver-->
+    <!--
+    <bean id="myController" class="com.cd.handlers.MyController">
+        <property name="methodNameResolver" ref="propertiesMethodNameResolver"/>
+    </bean>
+    -->
+
+    <!-- 注册ParameterMethodNameResolver方法名称解析器 需要<entry key="/my.do" value-ref="myController"/>-->
+    <bean id="parameterMethodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+        <!--若不指定paramName属性，则默认参数名称是action-->
+        <!--http://localhost:8080/springmvc/my.do?action=doSecond-->
+        <!--<property name="paramName" value="jjj"/>-->
+    </bean>
+    
+    <!--注册处理器，带ParameterMethodNameResolver-->
+    <bean id="myController" class="com.cd.handlers.MyController">
+        <property name="methodNameResolver" ref="parameterMethodNameResolver"/>
+    </bean>
+
+</beans>
